@@ -68,30 +68,38 @@ const Chat: React.FC = () => {
     }, [data])
     
   return (
-    <div className="chat-container">
-          <div className="chat-messages">
-              {messageListing.map((item:any) => (
-          <div className="message" key={item.id}>
-            <div className="message-content">{item.content}</div>
-            <div className="message-created-by">- {item.sender}</div>
+    <div className="chat-frame">
+      <div className="chat-container">
+            <div className="chat-messages">
+                {messageListing.map((item:any) => (
+            <div className="message" key={item.id}>
+              <div className="message-content">{item.content}</div>
+              <div className="message-created-by">- {item.sender}</div>
+            </div>
+          )) }
+        </div>
+        <form className="chat-form" onSubmit={handleSubmit}>
+          <div className="chat-wrap">
+            <input
+              type="text"
+              className='name'
+              placeholder="Your name"
+              value={createdBy}
+              onChange={(e) => setCreatedBy(e.target.value)}
+            />
+            <input
+              type="text"
+              className='message'
+              placeholder="Type a message"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+            <button type="submit">
+              <img src='images/send.svg' alt='send'/>
+            </button>
           </div>
-        )) }
+        </form>
       </div>
-      <form className="chat-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Your name"
-          value={createdBy}
-          onChange={(e) => setCreatedBy(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Type a message"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-        <button type="submit">Send</button>
-      </form>
     </div>
   );
 };

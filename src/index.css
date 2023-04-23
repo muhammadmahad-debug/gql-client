@@ -5,9 +5,146 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #658fff;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.chat-frame {
+  padding: 15px;
+}
+
+.chat-container {
+  max-width: 1170px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  height: calc(100vh - 30px);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 15px;
+}
+
+.message {
+  margin: 0 0 10px;
+}
+
+.message-content {
+  display: inline-block;
+  vertical-align: top;
+  background: #4c7dfe;
+  border-radius: 70px;
+  color: #fff;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0 0 4px;
+}
+
+.message-created-by {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+}
+
+.chat-form {
+  padding: 10px 15px;
+}
+
+.chat-form input[type="text"] {
+  padding: 15px;
+  font-size: 16px;
+  line-height: 20px;;
+  border: none;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+  background: none;
+}
+
+.chat-form .name {
+  border-radius: 30px 0 0 30px;
+  margin: 0 -30px 0 0 !important;
+  padding-right: 40px !important;
+}
+
+.chat-form .message {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+  border-radius: 30px;
+  background: #f3f3f3 !important;
+  padding-right: 50px !important;
+}
+
+.chat-form button[type="submit"] {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: #4c7dfe;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.chat-form button[type="submit"]:hover {
+  background: #2955c9;
+}
+
+.chat-wrap {
+  border-radius: 30px;
+  background: #f9f9f9;
+  display: flex;
+  position: relative;
+}
+
+
+@media (max-width: 539px) {
+  .chat-form {
+    padding: 10px 10px 1px 10px;
+  }
+
+  .chat-wrap {
+    flex-direction: column;
+    background: none;
+    border-radius: 0;
+  }
+
+  .chat-form .name {
+    padding-right: 15px !important;
+  }
+
+  .chat-form input[type="text"] {
+    background: #f3f3f3;
+    border-radius: 30px;
+    margin: 0 0 10px !important;
+  }
+
+  .chat-form button[type="submit"] {
+    top: auto;
+    transform: none;
+    bottom: 15px;
+  }
 }
